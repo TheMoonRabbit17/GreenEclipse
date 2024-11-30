@@ -1,0 +1,61 @@
+@keyframes cresent {
+    0% {
+        transform: translate(-30px, 30px) scale(0.9);
+        box-shadow: none;
+    }
+    50% {
+        transform: translate(0px, 0px) scale(1.02);
+        box-shadow: 0 0 10px #76e83d, 0 0 100px 8px #76e83d;
+        background-color: #76e83d;
+    }
+    100% {
+        transform: translate(30px, -30px) scale (0.9);
+        box-shadow: none;
+    }
+
+}
+
+html {
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(30deg, black, black);
+    overflow: hidden;
+}
+
+#moon {
+    background-image: linear-gradient(30deg, black, black);
+    width: 256px;
+    height: 256px;
+    border-radius: 50%;
+    position: relative;
+
+}
+
+#moon::before {
+    content: '';
+    background-color: #76e83d;
+    position: absolute;
+    display: block;
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+    z-index: -1;
+    animation: 3.2s cresent linear infinite alternate;
+}
+
+@media (max-width: 768px) {
+
+    #moon {
+        width: 200px;
+        height: 200px;
+    }
+}
